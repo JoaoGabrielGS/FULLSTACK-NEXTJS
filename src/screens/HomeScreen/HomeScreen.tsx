@@ -4,13 +4,16 @@ import Text from "@src/components/Text/Text";
 import Feed from "./patterns/Feed/Feed";
 import Footer from "./patterns/Footer/Footer";
 import { BaseComponent } from "@src/theme/BaseComponent";
+import { useTheme } from "@src/theme/ThemeProvider";
 
 export default function HomeScreen() {
+    const theme = useTheme();
+
     return (
         <BaseComponent
             tag="main"
             styleSheet={{
-                backgroundColor: 'grey',
+                backgroundColor: theme.colors.positive.x100,
                 flex: 1,
                 alignItems: 'center',
             }}
