@@ -14,24 +14,18 @@ export default function HomeScreen() {
         <BaseComponent
             tag="main"
             styleSheet={{
-                backgroundColor: theme.colors.positive.x100,
+                backgroundColor: theme.colors.neutral.x000,
                 flex: 1,
                 alignItems: 'center',
             }}
-        >
-            
-            <Link colorVariant="negative" href="/sobre">Vá para a página sobre</Link>
-            <Link href="https://google.com">Vá para o google</Link>
+        >   
             <Background />
             <Menu />
             <Feed>
                 <Feed.Header />
-                <Text variant="display1" tag="h3">
-                    Últimas atualizações
-                </Text>
                 <Feed.Posts />
             </Feed>
-            <Footer />
+            <Footer /> 
         </BaseComponent>
     )
 }

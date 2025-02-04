@@ -6,7 +6,7 @@ import { buttonSize, ButtonSize } from "./buttonSize";
 
 interface ButtonProps extends ButtonBaseProps {
     children: React.ReactNode;
-    fullWidth: boolean;
+    fullWidth?: boolean;
     colorVariant?: ColorVariant;
     variant?: Variant;
     size?: ButtonSize;
@@ -29,6 +29,8 @@ export default function Button(
         ...colorVariantBy(theme, colorVariant, variant),
         ...buttonSize[size],
         alignSelf: 'flex-start',
+        alignItems: 'center',
+        justifyContent: 'center',
         ...(fullWidth && {
             alignSelf: 'inital',
         }),
