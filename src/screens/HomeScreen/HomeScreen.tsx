@@ -5,6 +5,7 @@ import Feed from "./patterns/Feed/Feed";
 import Footer from "./patterns/Footer/Footer";
 import { BaseComponent } from "@src/theme/BaseComponent";
 import { useTheme } from "@src/theme/ThemeProvider";
+import Link from "@src/components/Link/Link";
 
 export default function HomeScreen() {
     const theme = useTheme();
@@ -18,6 +19,9 @@ export default function HomeScreen() {
                 alignItems: 'center',
             }}
         >
+            
+            <Link colorVariant="negative" href="/sobre">Vá para a página sobre</Link>
+            <Link href="https://google.com">Vá para o google</Link>
             <Background />
             <Menu />
             <Feed>
