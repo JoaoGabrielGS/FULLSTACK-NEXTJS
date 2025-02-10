@@ -1,0 +1,9 @@
+site:
+  title: "João Gabriel - Timeline"
+  decription: "Bem vindo a minha timeline pessoal"
+personal:
+  name: "João Gabriel"
+  avatar: "https://github.com/joaogabrielgs.png"
+  socialNetworks:
+    youtube: "https://www.youtube.com/@bielgolin"
+    github: "https://www.github.com/joaogabrielgs"

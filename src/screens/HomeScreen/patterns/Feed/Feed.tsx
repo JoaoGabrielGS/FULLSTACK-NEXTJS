@@ -4,8 +4,11 @@ import Icon from "@src/components/Icon/Icon";
 import Image from "@src/components/Image/Image";
 import Link from "@src/components/Link/Link";
 import Text from "@src/components/Text/Text";
+import type { Post } from "@src/services/posts/PostsService";
+import { useTemplateConfig } from "@src/services/template/TemplateConfigContext";
 import { useTheme } from "@src/theme/ThemeProvider";
 import React from "react";
+import { FeedPost } from "./patterns/FeedPost";
 
 interface FeedProps {
     children: React.ReactNode;
@@ -21,7 +24,7 @@ export default function Feed({ children }: FeedProps) {
             marginTop: '-228px',
             maxWidth: '683px',
             borderRadius: '8px',
-            paddingVertical: '40px',
+            paddingTop: '40px',
             paddingHorizontal: '40px',
             backgroundColor: theme.colors.neutral.x000,
         }}>
@@ -33,6 +36,7 @@ export default function Feed({ children }: FeedProps) {
 Feed.Header = () => {
 
     const theme = useTheme();
+    const templateConfig = useTemplateConfig();
 
     return (
         <Box styleSheet={{
@@ -46,7 +50,7 @@ Feed.Header = () => {
                 marginBottom: '16px',
                 paddingBottom: '24px',
             }}>
-                <Image src="https://github.com/joaogabrielgs.png" alt="João Gabriel" styleSheet={{
+                <Image src={templateConfig?.personal?.avatar} alt="João Gabriel" styleSheet={{
                     width: { xs: '100px', md: '128px' },
                     height: { xs: '100px', md: '128px' },
                     borderRadius: '100%',
@@ -75,27 +79,56 @@ Feed.Header = () => {
 
             </Box>
             <Text tag="h1" variant="heading4">
-                João Gabriel
+                {templateConfig?.personal?.name}
             </Text>
-            <Link href="https://youtube.com">
-                <Icon name="youtube"/>
-            </Link>
-            <Icon name="twitter" />
-            <Icon name="instagram" />
-            <Icon name="github" />
-            <Text>
-                Feed Header
-            </Text>
+
+            <Box styleSheet={{
+                flexDirection: 'row',
+                gap: '4px',
+                marginTop: '5px',
+                marginBottom: '10px',
+            }}>
+                {Object.keys(templateConfig.personal.socialNetworks).map(key => {
+                    const socialNetwork = templateConfig.personal.socialNetworks[key];
+
+                    if (socialNetwork) {
+                        return (
+                            <Link key={key} href={templateConfig.personal.socialNetworks[key]} target="_blank">
+                                <Icon name={key as any} />
+                            </Link>
+                        )
+                    }
+
+                    return null;
+                })}
+            </Box>
         </Box>
     )
 }
 
-Feed.Posts = () => {
+interface FeedPostsProps {
+    posts: Post[];
+}
+
+Feed.Posts = ({ posts }: FeedPostsProps) => {
     return (
         <Box>
-            <Text>
-                Feed Posts
-            </Text>
+            <Text variant="heading3" styleSheet={{ marginBottom: '27px' }}>Últimas atualizações</Text>
+
+            {posts.map(({ title, slug, metadata, image }) => {
+                const { date, excerpt, url, tags } = metadata;
+               return (
+                    <FeedPost
+                        key={slug} 
+                        title={title}
+                        date={date}
+                        excerpt={excerpt}
+                        tags={tags}
+                        url={url}
+                        image={image}
+                    />
+               ) 
+            })}
         </Box>
     )
 }

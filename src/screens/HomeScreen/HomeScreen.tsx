@@ -1,13 +1,17 @@
 import Background from "./patterns/Background/Background";
 import Menu from "./patterns/Menu/Menu";
-import Text from "@src/components/Text/Text";
 import Feed from "./patterns/Feed/Feed";
 import Footer from "./patterns/Footer/Footer";
 import { BaseComponent } from "@src/theme/BaseComponent";
 import { useTheme } from "@src/theme/ThemeProvider";
-import Link from "@src/components/Link/Link";
+import templatePageHOC from "@src/services/template/templatePageHOC";
+import type { Post } from "@src/services/posts/PostsService";
 
-export default function HomeScreen() {
+// interface HomeScreenProps {
+//     posts: Post[];
+// }
+
+function HomeScreen(props) {
     const theme = useTheme();
 
     return (
@@ -23,9 +27,13 @@ export default function HomeScreen() {
             <Menu />
             <Feed>
                 <Feed.Header />
-                <Feed.Posts />
+                <Feed.Posts posts={props.posts} />
             </Feed>
             <Footer /> 
         </BaseComponent>
     )
 }
+
+export default templatePageHOC(HomeScreen, {
+    title: "Home",
+})
