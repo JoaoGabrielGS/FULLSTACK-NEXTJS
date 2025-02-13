@@ -10,6 +10,7 @@ interface ButtonProps extends ButtonBaseProps {
     colorVariant?: ColorVariant;
     variant?: Variant;
     size?: ButtonSize;
+    hred?: string;
 }
 
 export default function Button(
@@ -20,6 +21,7 @@ export default function Button(
         colorVariant = 'primary',
         variant = 'contained',
         size = 'md',
+        ...props
     }: ButtonProps) {
 
     const theme = useTheme();
@@ -35,7 +37,9 @@ export default function Button(
             alignSelf: 'inital',
         }),
         ...styleSheet
-      }}>
+      }}
+      { ...props }
+      >
         {children}
       </ButtonBase>  
     );

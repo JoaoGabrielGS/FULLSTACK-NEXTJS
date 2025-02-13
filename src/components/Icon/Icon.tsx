@@ -14,6 +14,7 @@ interface IconProps {
     name: keyof typeof icons;
     styleSheet?: StyleSheet;
     size?: keyof typeof iconSizes;
+    onClick?: () => void;
 }
 
 export default function Icon({ size = 'md', name = 'default_icon', styleSheet, ...props }: IconProps) {

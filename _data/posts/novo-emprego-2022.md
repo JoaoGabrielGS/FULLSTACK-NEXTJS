@@ -1,14 +1,8 @@
 ---
-date: 2022-08-29
-image: 'https://images.unsplash.com/photo-1738168601625-5a472d90952a?q=80&w=1975&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-title: "Meu Novo Emprego na Empresa X"
-url: "https://www.github.com/joaogabrielgs"
-excerpt: "É uma nova fase na minha vida..."
+date: 2019-01-15
+image: 'https://blog.rocketseat.com.br/content/images/size/w2000/2023/12/OG_blog.png'
+title: "O Começo De Tudo!"
+url: "https://www.rocketseat.com.br/"
+excerpt: "No dia 15 de janeiro de 2019, minha jornada na programação começou, inspirada por um amigo que me apresentou esse mundo incrível. Decidi começar com JavaScript, explorando os recursos oferecidos pela Rocketseat. Foi ali que minha paixão pela tecnologia ganhou forma, mergulhando em códigos e desafios. Cada linha escrita era uma descoberta, e cada erro, uma oportunidade de aprendizado. Esse primeiro contato não apenas moldou minha trajetória profissional, mas também despertou em mim o desejo constante de criar e inovar. Hoje, olho para trás com gratidão, vendo como uma simples recomendação deu início a uma história que ainda está sendo escrita."
 tags:
- - emprego-novo
- - empresa-x
----
-
-# Contar como tudo começou!
-
-Estava eu sentado, numa sexta a noite, fazia frio...
+ - RocketSeat 🚀

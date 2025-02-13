@@ -1,13 +1,16 @@
 import Box from "@src/components/Box/Box";
 import Button from "@src/components/Button/Button";
 import Icon from "@src/components/Icon/Icon";
+import Overlay from "@src/components/Overlay/Overlay";
 import Text from "@src/components/Text/Text";
 import { useTheme } from "@src/theme/ThemeProvider";
+import { useState } from "react";
 
 export default function Menu() {
 
     const theme = useTheme();
     const baseSize = '40px';
+    const [openInfos, setOpenInfos] = useState(false);
 
     return (
         <Box styleSheet={{
@@ -35,11 +38,17 @@ export default function Menu() {
                 focus: {
                     backgroundColor: theme.colors.primary.x600,
                 },
-            }}>
+            }}
+            onClick={() => setOpenInfos(true)}
+            >
                 <Text>
-                    MS
+                    JG
                 </Text>
             </Button.Base>
+
+            <Overlay open={openInfos} title="Sobre mim">
+                Olá a todos
+            </Overlay>
 
             <Button.Base styleSheet={{
                 borderRadius: '100%',
@@ -54,10 +63,10 @@ export default function Menu() {
                 focus: {
                     backgroundColor: theme.colors.neutral.x600,
                 },
-            }}>
+            }}
+            >
                 <Icon name="menu" />
             </Button.Base>
-
         </Box>
     )
 }
